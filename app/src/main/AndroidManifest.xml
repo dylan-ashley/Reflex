@@ -16,6 +16,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ReactionTimerActivity"
+            android:label="@string/title_activity_reaction_timer"
+            android:parentActivityName=".MainMenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
+        </activity>
+        <activity
+            android:name=".GameShowBuzzerActivity"
+            android:label="@string/title_activity_game_show_buzzer"
+            android:parentActivityName=".MainMenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
+        </activity>
+        <activity
+            android:name=".StatisticsActivity"
+            android:label="@string/title_activity_statistics"
+            android:parentActivityName=".MainMenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
+        </activity>
     </application>
 
 </manifest>

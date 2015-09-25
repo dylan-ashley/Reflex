@@ -11,7 +11,8 @@
         android:text="@string/reaction_timer_button_message"
         android:id="@+id/reaction_timer_button"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startReactionTimer" />
 
     <Button
         android:layout_width="wrap_content"
@@ -19,7 +20,8 @@
         android:text="@string/game_show_buzzer_button_message"
         android:id="@+id/game_show_buzzer_button"
         android:layout_below="@+id/reaction_timer_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startGameShowBuzzer" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,5 +29,6 @@
         android:text="@string/statistics_button_message"
         android:id="@+id/statistics_button"
         android:layout_below="@+id/game_show_buzzer_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startStatistics" />
 </RelativeLayout>

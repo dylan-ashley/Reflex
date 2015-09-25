@@ -1,24 +1,22 @@
 package ca.ualberta.dashley_reflex;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MainMenuActivity extends AppCompatActivity {
+public class GameShowBuzzerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_game_show_buzzer);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_game_show_buzzer, menu);
         return true;
     }
 
@@ -35,20 +33,5 @@ public class MainMenuActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void startReactionTimer(View view) {
-        Intent intent = new Intent(this, ReactionTimerActivity.class);
-        startActivity(intent);
-    }
-
-    public void startGameShowBuzzer(View view) {
-        Intent intent = new Intent(this, GameShowBuzzerActivity.class);
-        startActivity(intent);
-    }
-
-    public void startStatistics(View view) {
-        Intent intent = new Intent(this, StatisticsActivity.class);
-        startActivity(intent);
     }
 }
