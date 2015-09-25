@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">dashley-reflex</string>
 
+    <string name="reaction_timer_button_message">Reaction Timer</string>
+    <string name="game_show_buzzer_button_message">Game Show Buzzer</string>
+    <string name="statistics_button_message">Statistics</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>
