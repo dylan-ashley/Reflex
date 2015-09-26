@@ -13,21 +13,21 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reaction_timer_button_message"
-        android:id="@+id/reaction_timer_button"
+        android:text="@string/reaction_timer_menu_button_message"
+        android:id="@+id/reaction_timer_menu_button"
         android:onClick="startReactionTimer" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/game_show_buzzer_button_message"
-        android:id="@+id/game_show_buzzer_button"
+        android:text="@string/game_show_buzzer_menu_button_message"
+        android:id="@+id/game_show_buzzer_menu_button"
         android:onClick="startGameShowBuzzer" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/statistics_button_message"
-        android:id="@+id/statistics_button"
+        android:text="@string/statistics_menu_button_message"
+        android:id="@+id/statistics_menu_button"
         android:onClick="startStatistics" />
 </LinearLayout>
