@@ -5,24 +5,17 @@ package ca.ualberta.dashley_reflex;
  */
 public class Stopwatch {
 
-    private Boolean isRunning;
     private long startTime;
 
     public Stopwatch() {
-        this.start();
+        this.restart();
     }
 
-    public void start() {
-        isRunning = Boolean.TRUE;
+    public void restart() {
         startTime = System.nanoTime();
     }
 
-    public long stop() throws StopwatchNotRunningException {
-        if (isRunning) {
-            isRunning = Boolean.FALSE;
-            return System.nanoTime() - startTime;
-        } else {
-            throw new StopwatchNotRunningException();
-        }
+    public long getTime() {
+        return System.nanoTime() - startTime;
     }
 }
