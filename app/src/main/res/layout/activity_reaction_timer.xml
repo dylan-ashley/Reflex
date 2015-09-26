@@ -6,4 +6,15 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.dashley_reflex.ReactionTimerActivity">
 
+    <!-- Paresh Mayani; http://stackoverflow.com/questions/7950664/how-to-change-width-and-height-of-button-in-android; 2015-09-25 -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:id="@+id/reaction_timer_reaction_timer_button"
+        android:background="@color/red"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Bill; http://stackoverflow.com/questions/432037/how-do-i-center-text-horizontally-and-vertically-in-a-textview-in-android; 2015-09-25 -->
 </RelativeLayout>

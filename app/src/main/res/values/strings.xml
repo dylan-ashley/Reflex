@@ -5,6 +5,8 @@
     <string name="game_show_buzzer_menu_button_message">Game Show Buzzer</string>
     <string name="statistics_menu_button_message">Statistics</string>
 
+    <string name="reaction_timer_explanation_text_message">Press the button to start. When the button flashes red click it quickly so that it can measure your reaction time.</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
