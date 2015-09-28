@@ -11,7 +11,7 @@ public class SimpleDialog {
 
     // MysticMagicϡ; http://stackoverflow.com/questions/26097513/android-simple-alert-dialog; 2015-09-26
     public SimpleDialog(String message, Activity activity) {
-        AlertDialog alertDialog= new AlertDialog.Builder(activity).create();
+        AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
         alertDialog.setMessage(message);
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {

@@ -1,20 +1,15 @@
 package ca.ualberta.dashley_reflex;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class ReactionTimerActivity extends AppCompatActivity {
 
-    private ReactionButtonWithDialog reactionButton;
+    private ReactionButton reactionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +18,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
 
         // Gangnus; http://stackoverflow.com/questions/4391720/how-can-i-get-a-resource-content-from-a-static-context; 2015-09-26
         Button button = (Button) findViewById(R.id.reaction_timer_reaction_timer_button);
-        this.reactionButton = new ReactionButtonWithDialog(
+        this.reactionButton = new ReactionButton(
                 getResources().getColor(R.color.red),
                 getResources().getColor(R.color.very_dark_grey),
                 button,
