@@ -16,21 +16,21 @@ import static java.lang.Math.random;
  */
 public class ReactionButton {
 
-    private int activeButtonColor;
-    private int inactiveButtonColor;
-    private Button button;
+    private final Activity activity;
+    private final int activeButtonColor;
+    private final int inactiveButtonColor;
+    private final Button button;
     private Boolean isRunning;
-    private long endTime;
     private Timer buttonColorChanger;
-    private Activity activity;
+    private long endTime;
 
     public ReactionButton(int activeButtonColor, int inactiveButtonColor, Button button, Activity activity) {
+        this.activity = activity;
         this.activeButtonColor = activeButtonColor;
         this.inactiveButtonColor = inactiveButtonColor;
         this.button = button;
         this.isRunning = Boolean.FALSE;
         this.buttonColorChanger = new Timer();
-        this.activity = activity;
     }
 
     // TJ_Fischer; http://stackoverflow.com/questions/363681/generating-random-integers-in-a-range-with-java; 2015-09-26
@@ -56,7 +56,6 @@ public class ReactionButton {
         };
         buttonColorChanger.schedule(task, delay);
     }
-
 
     private void validReaction(long reactionTime) {
         new SimpleDialog("Your reaction time was " + reactionTime + " ms.", this.activity);

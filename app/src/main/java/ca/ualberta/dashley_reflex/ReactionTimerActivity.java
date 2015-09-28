@@ -7,9 +7,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.IOException;
+
 public class ReactionTimerActivity extends AppCompatActivity {
 
     private ReactionButton reactionButton;
+    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance(this.getBaseContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +57,15 @@ public class ReactionTimerActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            statisticsHandler.saveInFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
