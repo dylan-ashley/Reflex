@@ -4,13 +4,26 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.io.IOException;
 
 public class StatisticsActivity extends AppCompatActivity {
+
+    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
+
+        if (!statisticsHandler.statisticsAreLoaded()) {
+            statisticsHandler.loadFromFile(this.getBaseContext());
+        }
+
+        ListView listView = (ListView) findViewById(R.id.statistics_list);
+        AndroidStatisticsDisplay displayInterface = new AndroidStatisticsDisplay(listView);
+        new StatisticsDisplayManager(displayInterface);
     }
 
     @Override
@@ -33,5 +46,15 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            statisticsHandler.saveInFile(this.getBaseContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -7,10 +7,16 @@ import android.view.MenuItem;
 
 public class GameShowBuzzerActivity extends AppCompatActivity {
 
+    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_show_buzzer);
+
+        if (!statisticsHandler.statisticsAreLoaded()) {
+            statisticsHandler.loadFromFile(this.getBaseContext());
+        }
     }
 
     @Override

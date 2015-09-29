@@ -24,6 +24,7 @@ public class StatisticsHandler {
     private static StatisticsHandler ourInstance = new StatisticsHandler();
     private static final String FILENAME = "statistics.json";
     private static LinkedList<Long> reactionTimes;
+    private static Boolean statisticsAreLoaded = Boolean.FALSE;
 
     public static StatisticsHandler getInstance() {
         return ourInstance;
@@ -53,6 +54,7 @@ public class StatisticsHandler {
         } catch (FileNotFoundException e) {
             reactionTimes = new LinkedList<>();
         }
+        statisticsAreLoaded = Boolean.TRUE;
     }
 
     public void saveInFile(Context context) throws IOException {
@@ -64,11 +66,15 @@ public class StatisticsHandler {
         fos.close();
     }
 
-    public static LinkedList<Long> getReactionTimes() {
+    public LinkedList<Long> getReactionTimes() {
         return reactionTimes;
     }
 
-    public static void setReactionTimes(LinkedList<Long> reactionTimes) {
+    public void setReactionTimes(LinkedList<Long> reactionTimes) {
         StatisticsHandler.reactionTimes = reactionTimes;
+    }
+
+    public Boolean statisticsAreLoaded() {
+        return statisticsAreLoaded;
     }
 }

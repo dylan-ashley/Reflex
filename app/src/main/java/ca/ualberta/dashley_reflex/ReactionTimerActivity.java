@@ -19,6 +19,10 @@ public class ReactionTimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_timer);
 
+        if (!statisticsHandler.statisticsAreLoaded()) {
+            statisticsHandler.loadFromFile(this.getBaseContext());
+        }
+
         // Gangnus; http://stackoverflow.com/questions/4391720/how-can-i-get-a-resource-content-from-a-static-context; 2015-09-26
         Button button = (Button) findViewById(R.id.reaction_timer_reaction_timer_button);
         this.reactionButton = new ReactionButton(

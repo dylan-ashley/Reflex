@@ -15,7 +15,9 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        statisticsHandler.loadFromFile(this.getBaseContext());
+        if (!statisticsHandler.statisticsAreLoaded()) {
+            statisticsHandler.loadFromFile(this.getBaseContext());
+        }
     }
 
     @Override
