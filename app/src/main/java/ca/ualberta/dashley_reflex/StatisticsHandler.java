@@ -21,48 +21,41 @@ import java.util.LinkedList;
  */
 public class StatisticsHandler {
 
-    private static StatisticsHandler ourInstance;
+    private static StatisticsHandler ourInstance = new StatisticsHandler();
     private static final String FILENAME = "statistics.json";
     private static LinkedList<Long> reactionTimes;
-    private static Context context;
 
-    public static StatisticsHandler getInstance(Context context) {
-        if (ourInstance == null) {
-            ourInstance = new StatisticsHandler(context);
-        }
+    public static StatisticsHandler getInstance() {
         return ourInstance;
     }
 
-    private StatisticsHandler(Context context) {
-        this.context = context;
-        try {
-            loadFromFile();
-        } catch (FileNotFoundException e) {
-            reactionTimes = new LinkedList<>();
-        }
-    }
+    private StatisticsHandler() {}
 
-    private void ResizeReactionTimes() {
+    private void resizeReactionTimes() {
         while (reactionTimes.size() > 100) {
             reactionTimes.remove();
         }
     }
 
-    public void RecordReaction(long time) {
+    public void recordReaction(long time) {
         reactionTimes.add(time);
-        ResizeReactionTimes();
+        resizeReactionTimes();
     }
 
-    private void loadFromFile() throws FileNotFoundException {
-        FileInputStream fis = context.openFileInput(FILENAME);
-        BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-        Gson gson = new Gson();
-        // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html; 2015-09-23
-        Type linkedListType = new TypeToken<LinkedList<Long>>() {}.getType();
-        reactionTimes = gson.fromJson(in, linkedListType);
+    public void loadFromFile(Context context) {
+        try {
+            FileInputStream fis = context.openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson gson = new Gson();
+            // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html; 2015-09-23
+            Type linkedListType = new TypeToken<LinkedList<Long>>() {}.getType();
+            reactionTimes = gson.fromJson(in, linkedListType);
+        } catch (FileNotFoundException e) {
+            reactionTimes = new LinkedList<>();
+        }
     }
 
-    public void saveInFile() throws IOException {
+    public void saveInFile(Context context) throws IOException {
         FileOutputStream fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
         Gson gson = new Gson();

@@ -23,6 +23,7 @@ public class ReactionButton {
     private Boolean isRunning;
     private Timer buttonColorChanger;
     private long endTime;
+    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
 
     public ReactionButton(int activeButtonColor, int inactiveButtonColor, Button button, Activity activity) {
         this.activity = activity;
@@ -58,6 +59,7 @@ public class ReactionButton {
     }
 
     private void validReaction(long reactionTime) {
+        statisticsHandler.recordReaction(reactionTime);
         new SimpleDialog("Your reaction time was " + reactionTime + " ms.", this.activity);
     }
 

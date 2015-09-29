@@ -9,10 +9,13 @@ import android.view.View;
 
 public class MainMenuActivity extends AppCompatActivity {
 
+    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        statisticsHandler.loadFromFile(this.getBaseContext());
     }
 
     @Override
