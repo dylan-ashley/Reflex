@@ -10,6 +10,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="statistics_clear_button_message">Clear</string>
+    <string name="statistics_email_button_message">Email</string>
+
     <string name="title_activity_reaction_timer">Reaction Timer</string>
     <string name="title_activity_game_show_buzzer">Game Show Buzzer</string>
     <string name="title_activity_statistics">Statistics</string>
