@@ -21,7 +21,8 @@
         android:text="@string/statistics_email_button_message"
         android:id="@+id/statistics_email_button"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:onClick="sendEmail" />
 
     <Button
         android:layout_width="150dp"

@@ -1,5 +1,7 @@
 package ca.ualberta.dashley_reflex;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class StatisticsActivity extends AppCompatActivity {
@@ -71,5 +74,21 @@ public class StatisticsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         displayManager.clearStatistics();
+    }
+
+    public void sendEmail(View view) {
+        ArrayList<String> statistics = displayManager.getStatistics();
+        
+    }
+
+    // https://developer.android.com/guide/components/intents-common.html#Email; 2015-09-30
+    private void composeEmail(String[] addresses, String subject) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }

@@ -61,4 +61,8 @@ public class StatisticsDisplayManager {
         }
         display.refreshDisplay();
     }
+
+    public ArrayList<String> getStatistics() {
+        return statisticsList;
+    }
 }
