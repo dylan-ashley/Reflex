@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class StatisticsActivity extends AppCompatActivity {
 
-    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
+    private final StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
+    private StatisticsDisplayManager displayManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +25,10 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         ListView listView = (ListView) findViewById(R.id.statistics_list);
-        AndroidStatisticsDisplay displayInterface = new AndroidStatisticsDisplay(listView);
-        new StatisticsDisplayManager(displayInterface);
+        AndroidStatisticsDisplay displayInterface = new AndroidStatisticsDisplay(listView, this);
+        displayManager = new StatisticsDisplayManager(displayInterface);
+        displayManager.loadStatistics();
+        displayManager.showStatistics();
     }
 
     @Override
@@ -56,5 +61,15 @@ public class StatisticsActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void clearAllStatistics(View view) {
+        statisticsHandler.setReactionTimes(new LinkedList<Long>());
+        try {
+            statisticsHandler.saveInFile(this.getBaseContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        displayManager.clearStatistics();
     }
 }

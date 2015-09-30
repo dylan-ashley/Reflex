@@ -29,5 +29,6 @@
         android:text="@string/statistics_clear_button_message"
         android:id="@+id/statistics_clear_button"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:onClick="clearAllStatistics" />
 </RelativeLayout>

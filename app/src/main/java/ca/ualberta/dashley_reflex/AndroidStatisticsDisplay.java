@@ -1,5 +1,6 @@
 package ca.ualberta.dashley_reflex;
 
+import android.app.Activity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -10,14 +11,12 @@ import java.util.ArrayList;
  */
 public class AndroidStatisticsDisplay implements StatisticsDisplay {
 
-    private final ListView list;
     private final ArrayList<String> statisticsOnDisplay = new ArrayList<>();
     private final ArrayAdapter<String> arrayAdapter;
 
-    public AndroidStatisticsDisplay(ListView list) {
-        this.list = list;
-        this.arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_item, statisticsOnDisplay);
-        this.list.setAdapter(arrayAdapter);
+    public AndroidStatisticsDisplay(ListView list, Activity activity) {
+        this.arrayAdapter = new ArrayAdapter<>(activity, R.layout.list_item, statisticsOnDisplay);
+        list.setAdapter(arrayAdapter);
         arrayAdapter.notifyDataSetChanged();
     }
 

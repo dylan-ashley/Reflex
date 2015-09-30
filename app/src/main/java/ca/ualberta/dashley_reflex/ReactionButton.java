@@ -20,10 +20,10 @@ public class ReactionButton {
     private final int activeButtonColor;
     private final int inactiveButtonColor;
     private final Button button;
+    private final StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
     private Boolean isRunning;
     private Timer buttonColorChanger;
     private long endTime;
-    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
 
     public ReactionButton(int activeButtonColor, int inactiveButtonColor, Button button, Activity activity) {
         this.activity = activity;

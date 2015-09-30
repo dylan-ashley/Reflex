@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ReactionTimerActivity extends AppCompatActivity {
 
     private ReactionButton reactionButton;
-    private StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
+    private final StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
