@@ -1,8 +1,9 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.StatisticsActivity;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+
+import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
 
 import static java.util.Collections.sort;
 

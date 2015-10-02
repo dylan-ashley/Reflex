@@ -1,4 +1,4 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.GameShowBuzzerActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.NumberPicker;
+
+import ca.ualberta.dashley_reflex.R;
+import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
 
 public class GameShowBuzzerActivity extends AppCompatActivity {
 

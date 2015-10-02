@@ -1,9 +1,12 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.GameShowBuzzerActivity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import ca.ualberta.dashley_reflex.R;
+import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
 
 public class GameShowBuzzerThreePlayerActivity extends AppCompatActivity {
 

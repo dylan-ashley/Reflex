@@ -1,10 +1,13 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.StatisticsActivity;
 
 import android.app.Activity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import ca.ualberta.dashley_reflex.R;
+import ca.ualberta.dashley_reflex.StatisticsActivity.StatisticsDisplay;
 
 /**
  * Created by dashley on 2015-09-28.

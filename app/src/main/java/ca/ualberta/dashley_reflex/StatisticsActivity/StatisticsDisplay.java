@@ -1,4 +1,4 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.StatisticsActivity;
 
 /**
  * Created by dashley on 2015-09-28.

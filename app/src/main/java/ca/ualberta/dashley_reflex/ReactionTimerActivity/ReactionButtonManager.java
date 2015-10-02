@@ -1,4 +1,4 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.ReactionTimerActivity;
 
 import android.app.Activity;
 import android.os.Handler;
@@ -9,29 +9,35 @@ import android.widget.Button;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import ca.ualberta.dashley_reflex.Tools.MessageSender;
+import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
+
 import static java.lang.Math.random;
 
 /**
  * Created by dashley on 2015-09-26.
  */
-public class ReactionButton {
+public class ReactionButtonManager {
 
-    private final Activity activity;
     private final int activeButtonColor;
     private final int inactiveButtonColor;
     private final Button button;
     private final StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
+    private final MessageSender messageSender;
     private Boolean isRunning;
     private Timer buttonColorChanger;
     private long endTime;
 
-    public ReactionButton(int activeButtonColor, int inactiveButtonColor, Button button, Activity activity) {
-        this.activity = activity;
+    public ReactionButtonManager(int activeButtonColor,
+                                 int inactiveButtonColor,
+                                 Button button,
+                                 MessageSender messageSender) {
         this.activeButtonColor = activeButtonColor;
         this.inactiveButtonColor = inactiveButtonColor;
         this.button = button;
         this.isRunning = Boolean.FALSE;
         this.buttonColorChanger = new Timer();
+        this.messageSender = messageSender;
     }
 
     // TJ_Fischer; http://stackoverflow.com/questions/363681/generating-random-integers-in-a-range-with-java; 2015-09-26
@@ -60,12 +66,12 @@ public class ReactionButton {
 
     private void validReaction(long reactionTime) {
         statisticsHandler.recordReaction(reactionTime);
-        new SimpleDialog("Your reaction time was " + reactionTime + " ms.", this.activity);
+        messageSender.sendMessage("Your reaction time was " + reactionTime + " ms.");
     }
 
     private void invalidReaction() {
         buttonColorChanger.cancel();
-        new SimpleDialog("You hit the button too soon!", this.activity);
+        messageSender.sendMessage("You hit the button too soon!");
         timedButtonColorChange(250, activeButtonColor);
     }
 

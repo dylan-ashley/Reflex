@@ -1,4 +1,4 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.StatisticsActivity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +12,9 @@ import android.widget.ListView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import ca.ualberta.dashley_reflex.R;
+import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
 
 public class StatisticsActivity extends AppCompatActivity {
 
@@ -78,7 +81,7 @@ public class StatisticsActivity extends AppCompatActivity {
 
     public void sendEmail(View view) {
         ArrayList<String> statistics = displayManager.getStatistics();
-        
+
     }
 
     // https://developer.android.com/guide/components/intents-common.html#Email; 2015-09-30

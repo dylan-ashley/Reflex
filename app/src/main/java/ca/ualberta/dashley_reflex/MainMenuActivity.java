@@ -7,6 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import ca.ualberta.dashley_reflex.GameShowBuzzerActivity.GameShowBuzzerActivity;
+import ca.ualberta.dashley_reflex.ReactionTimerActivity.ReactionTimerActivity;
+import ca.ualberta.dashley_reflex.StatisticsActivity.StatisticsActivity;
+import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
+
 public class MainMenuActivity extends AppCompatActivity {
 
     private final StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();

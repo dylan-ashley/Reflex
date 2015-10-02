@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ReactionTimerActivity"
+            android:name=".ReactionTimerActivity.ReactionTimerActivity"
             android:label="@string/title_activity_reaction_timer"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
@@ -25,7 +25,7 @@
                 android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerActivity"
+            android:name=".GameShowBuzzerActivity.GameShowBuzzerActivity"
             android:label="@string/title_activity_game_show_buzzer"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
@@ -33,7 +33,7 @@
                 android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
         </activity>
         <activity
-            android:name=".StatisticsActivity"
+            android:name=".StatisticsActivity.StatisticsActivity"
             android:label="@string/title_activity_statistics"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
@@ -41,28 +41,28 @@
                 android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerTwoPlayerActivity"
+            android:name=".GameShowBuzzerActivity.GameShowBuzzerTwoPlayerActivity"
             android:label="@string/title_activity_game_show_buzzer_two_player"
-            android:parentActivityName=".GameShowBuzzerActivity" >
+            android:parentActivityName=".GameShowBuzzerActivity.GameShowBuzzerActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.dashley_reflex.GameShowBuzzerActivity" />
+                android:value=".GameShowBuzzerActivity.GameShowBuzzerActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerThreePlayerActivity"
+            android:name=".GameShowBuzzerActivity.GameShowBuzzerThreePlayerActivity"
             android:label="@string/title_activity_game_show_buzzer_three_player"
-            android:parentActivityName=".GameShowBuzzerActivity" >
+            android:parentActivityName=".GameShowBuzzerActivity.GameShowBuzzerActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.dashley_reflex.GameShowBuzzerActivity" />
+                android:value=".GameShowBuzzerActivity.GameShowBuzzerActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerFourPlayerActivity"
+            android:name=".GameShowBuzzerActivity.GameShowBuzzerFourPlayerActivity"
             android:label="@string/title_activity_game_show_buzzer_four_player"
-            android:parentActivityName=".GameShowBuzzerActivity" >
+            android:parentActivityName=".GameShowBuzzerActivity.GameShowBuzzerActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.dashley_reflex.GameShowBuzzerActivity" />
+                android:value=".GameShowBuzzerActivity.GameShowBuzzerActivity" />
         </activity>
     </application>
 

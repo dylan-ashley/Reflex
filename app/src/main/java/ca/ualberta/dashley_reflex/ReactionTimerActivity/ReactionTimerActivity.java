@@ -1,4 +1,4 @@
-package ca.ualberta.dashley_reflex;
+package ca.ualberta.dashley_reflex.ReactionTimerActivity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +9,13 @@ import android.widget.Button;
 
 import java.io.IOException;
 
+import ca.ualberta.dashley_reflex.R;
+import ca.ualberta.dashley_reflex.Tools.SimpleDialog;
+import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
+
 public class ReactionTimerActivity extends AppCompatActivity {
 
-    private ReactionButton reactionButton;
+    private ReactionButtonManager reactionButtonManager;
     private final StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
 
     @Override
@@ -23,22 +27,24 @@ public class ReactionTimerActivity extends AppCompatActivity {
             statisticsHandler.loadFromFile(this.getBaseContext());
         }
 
+        SimpleDialog messageSender = new SimpleDialog(this);
+
         // Gangnus; http://stackoverflow.com/questions/4391720/how-can-i-get-a-resource-content-from-a-static-context; 2015-09-26
         Button button = (Button) findViewById(R.id.reaction_timer_reaction_timer_button);
-        this.reactionButton = new ReactionButton(
+        this.reactionButtonManager = new ReactionButtonManager(
                 getResources().getColor(R.color.red),
                 getResources().getColor(R.color.very_dark_grey),
                 button,
-                this);
+                messageSender);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                reactionButton.onClick();
+                reactionButtonManager.onClick();
             }
         });
 
         String message = getResources().getString(R.string.reaction_timer_explanation_text_message);
-        new SimpleDialog(message, this);
+        messageSender.sendMessage(message);
     }
 
     @Override
