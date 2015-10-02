@@ -11,7 +11,8 @@
         android:layout_height="120dp"
         android:text=""
         android:id="@+id/four_player_player_one_button"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@color/red"/>
 
     <Button
         android:layout_width="match_parent"
@@ -19,7 +20,8 @@
         android:text=""
         android:id="@+id/four_player_player_two_button"
         android:layout_below="@+id/four_player_player_one_button"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@color/blue"/>
 
     <Button
         android:layout_width="match_parent"
@@ -27,7 +29,8 @@
         android:text=""
         android:id="@+id/four_player_player_three_button"
         android:layout_below="@+id/four_player_player_two_button"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@color/green"/>
 
     <Button
         android:layout_width="match_parent"
@@ -35,5 +38,6 @@
         android:text=""
         android:id="@+id/four_player_player_four_button"
         android:layout_below="@+id/four_player_player_three_button"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@color/yellow"/>
 </RelativeLayout>
