@@ -16,4 +16,11 @@
     <string name="title_activity_reaction_timer">Reaction Timer</string>
     <string name="title_activity_game_show_buzzer">Game Show Buzzer</string>
     <string name="title_activity_statistics">Statistics</string>
+
+    <string name="player_count_button_message">OK</string>
+    <string name="player_count_text_message">Select the number of players:</string>
+
+    <string name="title_activity_game_show_buzzer_two_player">Two Player</string>
+    <string name="title_activity_game_show_buzzer_three_player">Three Player</string>
+    <string name="title_activity_game_show_buzzer_four_player">Four Player</string>
 </resources>

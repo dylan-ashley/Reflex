@@ -40,6 +40,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
         </activity>
+        <activity
+            android:name=".GameShowBuzzerTwoPlayerActivity"
+            android:label="@string/title_activity_game_show_buzzer_two_player"
+            android:parentActivityName=".GameShowBuzzerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.dashley_reflex.GameShowBuzzerActivity" />
+        </activity>
+        <activity
+            android:name=".GameShowBuzzerThreePlayerActivity"
+            android:label="@string/title_activity_game_show_buzzer_three_player"
+            android:parentActivityName=".GameShowBuzzerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.dashley_reflex.GameShowBuzzerActivity" />
+        </activity>
+        <activity
+            android:name=".GameShowBuzzerFourPlayerActivity"
+            android:label="@string/title_activity_game_show_buzzer_four_player"
+            android:parentActivityName=".GameShowBuzzerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.dashley_reflex.GameShowBuzzerActivity" />
+        </activity>
     </application>
 
 </manifest>
