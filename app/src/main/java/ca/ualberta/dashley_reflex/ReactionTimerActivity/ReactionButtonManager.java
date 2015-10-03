@@ -1,3 +1,17 @@
+// Copyright 2015 Dylan Robert Ashley
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package ca.ualberta.dashley_reflex.ReactionTimerActivity;
 
 import android.os.Handler;
@@ -62,6 +76,7 @@ public class ReactionButtonManager {
         return (long) (min + (random() * ((max - min) + 1)));
     }
 
+    // http://www.java2s.com/Code/Java/Development-Class/UsejavautilTimertoscheduleatasktoexecuteonce5secondshavepassed.htm; 2015-09-27
     public void timedButtonColorChange(long delay, final Handler handler) {
         buttonColorChanger = new Timer();
         TimerTask task = new TimerTask() {
@@ -96,9 +111,7 @@ public class ReactionButtonManager {
         } else {
             isRunning = Boolean.TRUE;
             button.setBackgroundColor(inactiveButtonColor);
-            // http://www.tutorialspoint.com/java/lang/system_currenttimemillis.htm; 2015-09-27
             endTime = System.currentTimeMillis() + getRandomTime();
-            // http://www.java2s.com/Code/Java/Development-Class/UsejavautilTimertoscheduleatasktoexecuteonce5secondshavepassed.htm; 2015-09-27
             timedButtonColorChange(endTime - System.currentTimeMillis(), activeButtonColorHandler);
         }
     }

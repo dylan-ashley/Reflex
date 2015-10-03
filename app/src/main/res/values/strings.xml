@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">dashley-reflex</string>
-    <string name="action_settings">Settings</string>
     <string name="reaction_timer_menu_button_message">Reaction Timer</string>
     <string name="game_show_buzzer_menu_button_message">Game Show Buzzer</string>
     <string name="statistics_menu_button_message">Statistics</string>

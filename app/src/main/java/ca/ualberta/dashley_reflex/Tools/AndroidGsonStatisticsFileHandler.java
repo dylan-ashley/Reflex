@@ -1,3 +1,17 @@
+// Copyright 2015 Dylan Robert Ashley
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package ca.ualberta.dashley_reflex.Tools;
 
 import android.content.Context;
@@ -34,7 +48,8 @@ public class AndroidGsonStatisticsFileHandler implements StatisticsFileHandler {
         BufferedReader in = new BufferedReader(new InputStreamReader(fis));
         Gson gson = new Gson();
         // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html; 2015-09-23
-        Type type = new TypeToken<HashMap<String, LinkedList<Long>>>() {}.getType();
+        Type type = new TypeToken<HashMap<String, LinkedList<Long>>>() {
+        }.getType();
         return gson.fromJson(in, type);
     }
 
