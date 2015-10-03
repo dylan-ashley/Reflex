@@ -18,9 +18,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import ca.ualberta.dashley_reflex.GameShowBuzzerActivity.GameShowBuzzerActivity;
-import ca.ualberta.dashley_reflex.ReactionTimerActivity.ReactionTimerActivity;
-import ca.ualberta.dashley_reflex.StatisticsActivity.StatisticsActivity;
+import ca.ualberta.dashley_reflex.GameShowBuzzer.GameShowBuzzerActivity;
+import ca.ualberta.dashley_reflex.ReactionTimer.ReactionTimerActivity;
+import ca.ualberta.dashley_reflex.Statistics.StatisticsActivity;
 
 public class MainMenuActivity extends BaseReflexActivity {
 

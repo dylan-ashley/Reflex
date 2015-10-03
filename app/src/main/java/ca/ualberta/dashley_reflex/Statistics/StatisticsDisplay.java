@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package ca.ualberta.dashley_reflex.StatisticsActivity;
+package ca.ualberta.dashley_reflex.Statistics;
 
 /**
  * Created by dashley on 2015-09-28.

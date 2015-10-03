@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package ca.ualberta.dashley_reflex.ReactionTimerActivity;
+package ca.ualberta.dashley_reflex.ReactionTimer;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -23,7 +23,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ca.ualberta.dashley_reflex.Tools.MessageSender;
-import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
+import ca.ualberta.dashley_reflex.Statistics.StatisticsHandler;
 
 import static java.lang.Math.random;
 

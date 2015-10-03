@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.ualberta.dashley_reflex" >
 
+    <!-- BullShark; http://stackoverflow.com/questions/2198410/how-to-change-title-of-activity-in-android; 2015-09-25 -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ReactionTimerActivity.ReactionTimerActivity"
+            android:name=".ReactionTimer.ReactionTimerActivity"
             android:label="@string/title_activity_reaction_timer"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
@@ -25,7 +26,7 @@
                 android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerActivity.GameShowBuzzerActivity"
+            android:name=".GameShowBuzzer.GameShowBuzzerActivity"
             android:label="@string/title_activity_game_show_buzzer"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
@@ -33,7 +34,7 @@
                 android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
         </activity>
         <activity
-            android:name=".StatisticsActivity.StatisticsActivity"
+            android:name=".Statistics.StatisticsActivity"
             android:label="@string/title_activity_statistics"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
@@ -41,28 +42,28 @@
                 android:value="ca.ualberta.dashley_reflex.MainMenuActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerActivity.GameShowBuzzerTwoPlayerActivity"
+            android:name=".GameShowBuzzer.GameShowBuzzerTwoPlayerActivity"
             android:label="@string/title_activity_game_show_buzzer_two_player"
-            android:parentActivityName=".GameShowBuzzerActivity.GameShowBuzzerActivity" >
+            android:parentActivityName=".GameShowBuzzer.GameShowBuzzerActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GameShowBuzzerActivity.GameShowBuzzerActivity" />
+                android:value=".GameShowBuzzer.GameShowBuzzerActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerActivity.GameShowBuzzerThreePlayerActivity"
+            android:name=".GameShowBuzzer.GameShowBuzzerThreePlayerActivity"
             android:label="@string/title_activity_game_show_buzzer_three_player"
-            android:parentActivityName=".GameShowBuzzerActivity.GameShowBuzzerActivity" >
+            android:parentActivityName=".GameShowBuzzer.GameShowBuzzerActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GameShowBuzzerActivity.GameShowBuzzerActivity" />
+                android:value=".GameShowBuzzer.GameShowBuzzerActivity" />
         </activity>
         <activity
-            android:name=".GameShowBuzzerActivity.GameShowBuzzerFourPlayerActivity"
+            android:name=".GameShowBuzzer.GameShowBuzzerFourPlayerActivity"
             android:label="@string/title_activity_game_show_buzzer_four_player"
-            android:parentActivityName=".GameShowBuzzerActivity.GameShowBuzzerActivity" >
+            android:parentActivityName=".GameShowBuzzer.GameShowBuzzerActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GameShowBuzzerActivity.GameShowBuzzerActivity" />
+                android:value=".GameShowBuzzer.GameShowBuzzerActivity" />
         </activity>
     </application>
 

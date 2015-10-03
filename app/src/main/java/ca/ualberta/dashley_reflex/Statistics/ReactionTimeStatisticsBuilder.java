@@ -12,14 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package ca.ualberta.dashley_reflex.StatisticsActivity;
+package ca.ualberta.dashley_reflex.Statistics;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
-
-import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
 
 import static java.util.Collections.sort;
 

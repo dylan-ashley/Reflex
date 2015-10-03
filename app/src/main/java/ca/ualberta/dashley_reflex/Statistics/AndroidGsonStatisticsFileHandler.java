@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package ca.ualberta.dashley_reflex.Tools;
+package ca.ualberta.dashley_reflex.Statistics;
 
 import android.content.Context;
 
@@ -30,6 +30,8 @@ import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.LinkedList;
+
+import ca.ualberta.dashley_reflex.Statistics.StatisticsFileHandler;
 
 /**
  * Created by dashley on 2015-10-03.

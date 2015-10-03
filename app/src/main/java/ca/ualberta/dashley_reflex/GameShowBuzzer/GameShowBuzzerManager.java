@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package ca.ualberta.dashley_reflex.GameShowBuzzerActivity;
+package ca.ualberta.dashley_reflex.GameShowBuzzer;
 
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +20,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 import ca.ualberta.dashley_reflex.Tools.MessageSender;
-import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
+import ca.ualberta.dashley_reflex.Statistics.StatisticsHandler;
 
 /**
  * Created by dashley on 2015-10-02.

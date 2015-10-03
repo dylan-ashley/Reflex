@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package ca.ualberta.dashley_reflex.GameShowBuzzerActivity;
+package ca.ualberta.dashley_reflex.GameShowBuzzer;
 
 import android.content.Intent;
 import android.os.Bundle;

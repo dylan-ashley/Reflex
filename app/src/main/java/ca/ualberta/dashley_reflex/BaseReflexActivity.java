@@ -19,9 +19,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.io.IOException;
 
-import ca.ualberta.dashley_reflex.Tools.AndroidGsonStatisticsFileHandler;
+import ca.ualberta.dashley_reflex.Statistics.AndroidGsonStatisticsFileHandler;
 import ca.ualberta.dashley_reflex.Tools.SimpleDialog;
-import ca.ualberta.dashley_reflex.Tools.StatisticsHandler;
+import ca.ualberta.dashley_reflex.Statistics.StatisticsHandler;
 
 public abstract class BaseReflexActivity extends AppCompatActivity {
 
