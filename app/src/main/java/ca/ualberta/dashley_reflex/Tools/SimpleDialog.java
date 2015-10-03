@@ -15,6 +15,7 @@ public class SimpleDialog implements MessageSender {
         this.activity = activity;
     }
 
+    // MysticMagicϡ; http://stackoverflow.com/questions/26097513/android-simple-alert-dialog; 2015-09-26
     public void sendMessage(String message) {
         AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
         alertDialog.setMessage(message);

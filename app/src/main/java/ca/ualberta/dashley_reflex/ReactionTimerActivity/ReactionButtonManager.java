@@ -1,6 +1,5 @@
 package ca.ualberta.dashley_reflex.ReactionTimerActivity;
 
-import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -22,22 +21,38 @@ public class ReactionButtonManager {
     private final int activeButtonColor;
     private final int inactiveButtonColor;
     private final Button button;
-    private final StatisticsHandler statisticsHandler = StatisticsHandler.getInstance();
     private final MessageSender messageSender;
+    private final StatisticsHandler statisticsHandler;
+    private final Handler activeButtonColorHandler;
+    private final Handler inactiveButtonColorHandler;
     private Boolean isRunning;
     private Timer buttonColorChanger;
     private long endTime;
 
-    public ReactionButtonManager(int activeButtonColor,
-                                 int inactiveButtonColor,
-                                 Button button,
-                                 MessageSender messageSender) {
+    public ReactionButtonManager(final int activeButtonColor,
+                                 final int inactiveButtonColor,
+                                 final Button button,
+                                 final MessageSender messageSender,
+                                 final StatisticsHandler statisticsHandler) {
         this.activeButtonColor = activeButtonColor;
         this.inactiveButtonColor = inactiveButtonColor;
         this.button = button;
+        this.messageSender = messageSender;
+        this.statisticsHandler = statisticsHandler;
         this.isRunning = Boolean.FALSE;
         this.buttonColorChanger = new Timer();
-        this.messageSender = messageSender;
+        activeButtonColorHandler = new Handler(Looper.getMainLooper()) {
+            @Override
+            public void handleMessage(Message inputMessage) {
+                button.setBackgroundColor(activeButtonColor);
+            }
+        };
+        inactiveButtonColorHandler = new Handler(Looper.getMainLooper()) {
+            @Override
+            public void handleMessage(Message inputMessage) {
+                button.setBackgroundColor(inactiveButtonColor);
+            }
+        };
     }
 
     // TJ_Fischer; http://stackoverflow.com/questions/363681/generating-random-integers-in-a-range-with-java; 2015-09-26
@@ -47,13 +62,7 @@ public class ReactionButtonManager {
         return (long) (min + (random() * ((max - min) + 1)));
     }
 
-    public void timedButtonColorChange(long delay, final int color) {
-        final Handler handler = new Handler(Looper.getMainLooper()) {
-            @Override
-            public void handleMessage(Message inputMessage) {
-                button.setBackgroundColor(color);
-            }
-        };
+    public void timedButtonColorChange(long delay, final Handler handler) {
         buttonColorChanger = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -72,7 +81,7 @@ public class ReactionButtonManager {
     private void invalidReaction() {
         buttonColorChanger.cancel();
         messageSender.sendMessage("You hit the button too soon!");
-        timedButtonColorChange(250, activeButtonColor);
+        timedButtonColorChange(250, activeButtonColorHandler);
     }
 
     public void onClick() {
@@ -90,7 +99,7 @@ public class ReactionButtonManager {
             // http://www.tutorialspoint.com/java/lang/system_currenttimemillis.htm; 2015-09-27
             endTime = System.currentTimeMillis() + getRandomTime();
             // http://www.java2s.com/Code/Java/Development-Class/UsejavautilTimertoscheduleatasktoexecuteonce5secondshavepassed.htm; 2015-09-27
-            timedButtonColorChange(endTime - System.currentTimeMillis(), activeButtonColor);
+            timedButtonColorChange(endTime - System.currentTimeMillis(), activeButtonColorHandler);
         }
     }
 }

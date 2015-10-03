@@ -1,19 +1,9 @@
 package ca.ualberta.dashley_reflex.Tools;
 
-import android.content.Context;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -21,57 +11,89 @@ import java.util.LinkedList;
  */
 public class StatisticsHandler {
 
-    private static StatisticsHandler ourInstance = new StatisticsHandler();
-    private static final String FILENAME = "statistics.json";
-    private static LinkedList<Long> reactionTimes;
-    private static Boolean statisticsAreLoaded = Boolean.FALSE;
+    private final String FILENAME = "statistics.json";
+    private StatisticsFileHandler fileHandler;
+    private Boolean statisticsAreLoaded = Boolean.FALSE;
+    private Boolean saveNeeded = Boolean.FALSE;
+    private LinkedList<Long> reactionTimes;
+    private LinkedList<Long> twoPlayerBuzzerWins;
+    private LinkedList<Long> threePlayerBuzzerWins;
+    private LinkedList<Long> fourPlayerBuzzerWins;
 
-    public static StatisticsHandler getInstance() {
-        return ourInstance;
-    }
-
-    private StatisticsHandler() {}
-
-    private void resizeReactionTimes() {
-        while (reactionTimes.size() > 100) {
-            reactionTimes.remove();
-        }
+    public StatisticsHandler(StatisticsFileHandler fileHandler) {
+        this.fileHandler = fileHandler;
+        this.loadFromFile();
     }
 
     public void recordReaction(long time) {
         reactionTimes.add(time);
-        resizeReactionTimes();
+        saveNeeded = Boolean.TRUE;
     }
 
-    public void loadFromFile(Context context) {
+    public void recordTwoPlayerBuzzer(int winner) {
+        Long winnerCount = twoPlayerBuzzerWins.get(winner - 1);
+        twoPlayerBuzzerWins.set(winner - 1, winnerCount + 1);
+        saveNeeded = Boolean.TRUE;
+    }
+
+    public void recordThreePlayerBuzzer(int winner) {
+        Long winnerCount = threePlayerBuzzerWins.get(winner - 1);
+        threePlayerBuzzerWins.set(winner - 1, winnerCount + 1);
+        saveNeeded = Boolean.TRUE;
+    }
+
+    public void recordFourPlayerBuzzer(int winner) {
+        Long winnerCount = fourPlayerBuzzerWins.get(winner - 1);
+        fourPlayerBuzzerWins.set(winner - 1, winnerCount + 1);
+        saveNeeded = Boolean.TRUE;
+    }
+
+    public void loadFromFile() {
         try {
-            FileInputStream fis = context.openFileInput(FILENAME);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-            Gson gson = new Gson();
-            // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html; 2015-09-23
-            Type linkedListType = new TypeToken<LinkedList<Long>>() {}.getType();
-            reactionTimes = gson.fromJson(in, linkedListType);
+            HashMap<String, LinkedList<Long>> hashMap = fileHandler.loadFile(FILENAME);
+            reactionTimes = hashMap.get("reactionTimes");
+            twoPlayerBuzzerWins = hashMap.get("twoPlayerBuzzerWins");
+            threePlayerBuzzerWins = hashMap.get("threePlayerBuzzerWins");
+            fourPlayerBuzzerWins = hashMap.get("fourPlayerBuzzerWins");
         } catch (FileNotFoundException e) {
-            reactionTimes = new LinkedList<>();
+            clearStatistics();
         }
         statisticsAreLoaded = Boolean.TRUE;
     }
 
-    public void saveInFile(Context context) throws IOException {
-        FileOutputStream fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
-        Gson gson = new Gson();
-        gson.toJson(reactionTimes, out);
-        out.flush();
-        fos.close();
+    public void saveInFile() throws IOException {
+        if (saveNeeded) {
+            HashMap<String, LinkedList<Long>> hashMap = new HashMap<>();
+            hashMap.put("reactionTimes", reactionTimes);
+            hashMap.put("twoPlayerBuzzerWins", twoPlayerBuzzerWins);
+            hashMap.put("threePlayerBuzzerWins", threePlayerBuzzerWins);
+            hashMap.put("fourPlayerBuzzerWins", fourPlayerBuzzerWins);
+            fileHandler.saveInFile(FILENAME, hashMap);
+        }
+    }
+
+    public void clearStatistics() {
+        reactionTimes = new LinkedList<>();
+        twoPlayerBuzzerWins = new LinkedList<>(Arrays.asList(new Long(0), new Long(0)));
+        threePlayerBuzzerWins = new LinkedList<>(Arrays.asList(new Long(0), new Long(0), new Long(0)));
+        fourPlayerBuzzerWins = new LinkedList<>(Arrays.asList(new Long(0), new Long(0), new Long(0), new Long(0)));
+        saveNeeded = Boolean.TRUE;
     }
 
     public LinkedList<Long> getReactionTimes() {
         return reactionTimes;
     }
 
-    public void setReactionTimes(LinkedList<Long> reactionTimes) {
-        StatisticsHandler.reactionTimes = reactionTimes;
+    public LinkedList<Long> getTwoPlayerBuzzerWins() {
+        return twoPlayerBuzzerWins;
+    }
+
+    public LinkedList<Long> getThreePlayerBuzzerWins() {
+        return threePlayerBuzzerWins;
+    }
+
+    public LinkedList<Long> getFourPlayerBuzzerWins() {
+        return fourPlayerBuzzerWins;
     }
 
     public Boolean statisticsAreLoaded() {
