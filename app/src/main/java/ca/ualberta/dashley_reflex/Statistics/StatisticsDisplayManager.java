@@ -51,6 +51,7 @@ public class StatisticsDisplayManager {
             display.removeStatisticsFromDisplay(statistic);
         }
         display.refreshDisplay();
+        statisticsList = new ArrayList<>();
     }
 
     public ArrayList<String> getStatistics() {
