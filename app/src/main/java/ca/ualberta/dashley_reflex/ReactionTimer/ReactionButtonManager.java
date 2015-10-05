@@ -82,7 +82,6 @@ public class ReactionButtonManager {
     }
 
     /**
-     *
      * Generates a random time between 10ms and 2000ms.
      *
      * @return time

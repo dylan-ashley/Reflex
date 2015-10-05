@@ -25,3 +25,4 @@ The following pages were also referenced in the creation of this assignment:
 - `https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html`; 2015-09-23
 - `https://developer.android.com/guide/components/intents-common.html#Email`; 2015-10-03
 - MysticMagicϡ; `http://stackoverflow.com/questions/26097513/android-simple-alert-dialog`; 2015-09-26
+- Paresh Mayani; `http://stackoverflow.com/questions/7950664/how-to-change-width-and-height-of-button-in-android`; 2015-09-25
