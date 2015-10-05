@@ -22,6 +22,11 @@ import android.widget.NumberPicker;
 import ca.ualberta.dashley_reflex.BaseReflexActivity;
 import ca.ualberta.dashley_reflex.R;
 
+/**
+ * Activity that allows the user to select the number of players to be involved in the game.
+ *
+ * Rationale: This allows an easy and intuitive branching point while retaining the benefits of the android xml layouts.
+ */
 public class GameShowBuzzerActivity extends BaseReflexActivity {
 
     private NumberPicker playerCountPicker;
@@ -36,6 +41,11 @@ public class GameShowBuzzerActivity extends BaseReflexActivity {
         playerCountPicker.setMaxValue(4);
     }
 
+    /**
+     * Starts the activity corresponding to the number of players selected.
+     *
+     * @param view android view object
+     */
     public void startGameShowBuzzer(View view) {
         int playerCount = playerCountPicker.getValue();
         if (playerCount == 2) {

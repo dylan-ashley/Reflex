@@ -20,7 +20,10 @@ import static java.util.Collections.sort;
 
 
 /**
- * Created by dashley on 2015-09-28.
+ * Provides the core model of the statistics portion of the application.
+ *
+ * Rationale: This allows semi independence of android while abstracting the functionality of the activity into a
+ * single object.
  */
 public class StatisticsDisplayManager {
 
@@ -28,16 +31,28 @@ public class StatisticsDisplayManager {
     private final StatisticsHandler handler;
     private ArrayList<String> statisticsList = new ArrayList<>();
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param display display to place statistics on
+     * @param handler handler to retrieve statistics from
+     */
     public StatisticsDisplayManager(StatisticsDisplay display, StatisticsHandler handler) {
         this.display = display;
         this.handler = handler;
     }
 
+    /**
+     * Loads all statistics.
+     */
     public void loadStatistics() {
         statisticsList.addAll(new ReactionTimeStatisticsBuilder(handler).getStatistics());
         statisticsList.addAll(new BuzzerStatisticsBuilder(handler).getStatistics());
     }
 
+    /**
+     * Displays all statistics.
+     */
     public void showStatistics() {
         sort(statisticsList);
         for (String statistic : statisticsList) {
@@ -46,6 +61,9 @@ public class StatisticsDisplayManager {
         display.refreshDisplay();
     }
 
+    /**
+     * Deletes all statistics and clears the display.
+     */
     public void clearStatistics() {
         for (String statistic : statisticsList) {
             display.removeStatisticsFromDisplay(statistic);
@@ -54,6 +72,11 @@ public class StatisticsDisplayManager {
         statisticsList = new ArrayList<>();
     }
 
+    /**
+     * Retrieves all statistics.
+     *
+     * @return statistics
+     */
     public ArrayList<String> getStatistics() {
         return statisticsList;
     }

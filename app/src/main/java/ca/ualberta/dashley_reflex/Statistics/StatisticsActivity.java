@@ -25,6 +25,11 @@ import java.io.IOException;
 import ca.ualberta.dashley_reflex.BaseReflexActivity;
 import ca.ualberta.dashley_reflex.R;
 
+/**
+ * Activity that controls the statistics portion of the application.
+ *
+ * Rationale: This follows the paradigm typical of android programming.
+ */
 public class StatisticsActivity extends BaseReflexActivity {
 
     private StatisticsDisplayManager displayManager;
@@ -41,6 +46,11 @@ public class StatisticsActivity extends BaseReflexActivity {
         displayManager.showStatistics();
     }
 
+    /**
+     * Removes all statistics from the display.
+     *
+     * @param view android view object
+     */
     public void clearAllStatistics(View view) {
         statisticsHandler.clearStatistics();
         try {
@@ -51,6 +61,11 @@ public class StatisticsActivity extends BaseReflexActivity {
         displayManager.clearStatistics();
     }
 
+    /**
+     * Prompts the user to send an email containing all of their statistics.
+     *
+     * @param view android view object
+     */
     // https://developer.android.com/guide/components/intents-common.html#Email; 2015-10-03
     public void sendEmail(View view) {
         StringBuilder builder = new StringBuilder();

@@ -34,12 +34,20 @@ import java.util.LinkedList;
 import ca.ualberta.dashley_reflex.Statistics.StatisticsFileHandler;
 
 /**
- * Created by dashley on 2015-10-03.
+ * File handler that provides loading and saving of JSON files in android.
+ *
+ * Rationale: This class encapsulates the normally complicated process of generating dialog boxes into a simple
+ * interface.
  */
 public class AndroidGsonStatisticsFileHandler implements StatisticsFileHandler {
 
     private Context context;
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param context android context object
+     */
     public AndroidGsonStatisticsFileHandler(Context context) {
         this.context = context;
     }

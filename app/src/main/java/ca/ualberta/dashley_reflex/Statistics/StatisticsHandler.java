@@ -21,7 +21,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
- * Created by dashley on 2015-09-25.
+ * Class that enables recording of reaction times and button presses.
+ *
+ * Rational: Delegates the complicated task of recording and retaining buzzer statistics to a specialist class.
  */
 public class StatisticsHandler {
 
@@ -34,34 +36,62 @@ public class StatisticsHandler {
     private LinkedList<Long> threePlayerBuzzerWins;
     private LinkedList<Long> fourPlayerBuzzerWins;
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param fileHandler used to manipulate files
+     */
     public StatisticsHandler(StatisticsFileHandler fileHandler) {
         this.fileHandler = fileHandler;
         this.loadFromFile();
     }
 
+    /**
+     * Records a reaction.
+     *
+     * @param time reaction time
+     */
     public void recordReaction(long time) {
         reactionTimes.add(time);
         saveNeeded = Boolean.TRUE;
     }
 
+    /**
+     * Records a two player buzzer press.
+     *
+     * @param winner who pushed their button first
+     */
     public void recordTwoPlayerBuzzer(int winner) {
         Long winnerCount = twoPlayerBuzzerWins.get(winner - 1);
         twoPlayerBuzzerWins.set(winner - 1, winnerCount + 1);
         saveNeeded = Boolean.TRUE;
     }
 
+    /**
+     * Records a three player buzzer press.
+     *
+     * @param winner who pushed their button first
+     */
     public void recordThreePlayerBuzzer(int winner) {
         Long winnerCount = threePlayerBuzzerWins.get(winner - 1);
         threePlayerBuzzerWins.set(winner - 1, winnerCount + 1);
         saveNeeded = Boolean.TRUE;
     }
 
+    /**
+     * Records a four player buzzer press.
+     *
+     * @param winner who pushed their button first
+     */
     public void recordFourPlayerBuzzer(int winner) {
         Long winnerCount = fourPlayerBuzzerWins.get(winner - 1);
         fourPlayerBuzzerWins.set(winner - 1, winnerCount + 1);
         saveNeeded = Boolean.TRUE;
     }
 
+    /**
+     * Loads recorded statistics from the save file if it exists.
+     */
     public void loadFromFile() {
         try {
             HashMap<String, LinkedList<Long>> hashMap = fileHandler.loadFile(FILENAME);
@@ -75,6 +105,9 @@ public class StatisticsHandler {
         statisticsAreLoaded = Boolean.TRUE;
     }
 
+    /**
+     * Saves recorded statistics into the save file.
+     */
     public void saveInFile() throws IOException {
         if (saveNeeded) {
             HashMap<String, LinkedList<Long>> hashMap = new HashMap<>();
@@ -86,6 +119,9 @@ public class StatisticsHandler {
         }
     }
 
+    /**
+     * Clears all statistics.
+     */
     public void clearStatistics() {
         reactionTimes = new LinkedList<>();
         twoPlayerBuzzerWins = new LinkedList<>(Arrays.asList(new Long(0), new Long(0)));
@@ -94,22 +130,47 @@ public class StatisticsHandler {
         saveNeeded = Boolean.TRUE;
     }
 
+    /**
+     * Returns all reaction times that have been recorded.
+     *
+     * @return reaction times
+     */
     public LinkedList<Long> getReactionTimes() {
         return reactionTimes;
     }
 
+    /**
+     * Returns all two player buzzer presses that have been recorded.
+     *
+     * @return two player buzzer presses
+     */
     public LinkedList<Long> getTwoPlayerBuzzerWins() {
         return twoPlayerBuzzerWins;
     }
 
+    /**
+     * Returns all three player buzzer presses that have been recorded.
+     *
+     * @return three player buzzer presses
+     */
     public LinkedList<Long> getThreePlayerBuzzerWins() {
         return threePlayerBuzzerWins;
     }
 
+    /**
+     * Returns all four player buzzer presses that have been recorded.
+     *
+     * @return four player buzzer presses
+     */
     public LinkedList<Long> getFourPlayerBuzzerWins() {
         return fourPlayerBuzzerWins;
     }
 
+    /**
+     * Returns whether or not the statistics have been loaded yet.
+     *
+     * @return whether or not the statistics have been loaded yet
+     */
     public Boolean statisticsAreLoaded() {
         return statisticsAreLoaded;
     }

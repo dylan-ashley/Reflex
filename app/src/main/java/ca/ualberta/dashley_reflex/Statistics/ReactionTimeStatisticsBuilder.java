@@ -22,17 +22,29 @@ import java.util.LinkedList;
 import static java.util.Collections.sort;
 
 /**
- * Created by dashley on 2015-10-03.
+ * Generator for Reaction Time statistics.
+ *
+ * Rationale: Delegates the complicated task of computing reaction time statistics to a specialist class.
  */
 public class ReactionTimeStatisticsBuilder {
 
     private final StatisticsHandler handler;
     private ArrayList<String> statisticsList = new ArrayList<>();
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param handler handler to retrieve statistics from
+     */
     public ReactionTimeStatisticsBuilder(StatisticsHandler handler) {
         this.handler = handler;
     }
 
+    /**
+     * Computes all relevant statistics and returns them.
+     *
+     * @return statistics
+     */
     public ArrayList<String> getStatistics() {
         LinkedList<Long> reactionTimes = (LinkedList<Long>) handler.getReactionTimes().clone();
         int reactionTimesSize = reactionTimes.size();
@@ -58,6 +70,11 @@ public class ReactionTimeStatisticsBuilder {
         return statisticsList;
     }
 
+    /**
+     * Loads relevant statistics for a given set of times.
+     *
+     * @param reactionTimes times used to generate statistics from
+     */
     private void loadStatisticsForTrial(LinkedList<Long> reactionTimes) {
         int trialCount = reactionTimes.size();
         if (trialCount != 0) {
@@ -78,6 +95,12 @@ public class ReactionTimeStatisticsBuilder {
         }
     }
 
+    /**
+     * Gets the sum of a series of longs.
+     *
+     * @param collection collection to sum over
+     * @return sum of the elements
+     */
     private long sum(Collection<Long> collection) {
         Iterator<Long> iterator = collection.iterator();
         long total = 0;

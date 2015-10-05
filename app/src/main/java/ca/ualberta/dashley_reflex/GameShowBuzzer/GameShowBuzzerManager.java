@@ -23,7 +23,10 @@ import ca.ualberta.dashley_reflex.Tools.MessageSender;
 import ca.ualberta.dashley_reflex.Statistics.StatisticsHandler;
 
 /**
- * Created by dashley on 2015-10-02.
+ * Provides the core model of the Game Show Buzzer game.
+ *
+ * Rationale: This allows semi independence of android while abstracting the functionality of the game with any number
+ * of players to a single object.
  */
 public class GameShowBuzzerManager {
 
@@ -31,6 +34,13 @@ public class GameShowBuzzerManager {
     private final MessageSender messageSender;
     private ArrayList<Button> players;
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param players set of buttons to be used by the players
+     * @param messageSender object used to communicate with the players
+     * @param statisticsHandler object used to record statistics
+     */
     public GameShowBuzzerManager(ArrayList<Button> players,
                                  MessageSender messageSender,
                                  StatisticsHandler statisticsHandler) {
@@ -40,6 +50,12 @@ public class GameShowBuzzerManager {
         setupButtons();
     }
 
+    /**
+     * Records a button push and notifies the user who pushed their button first.
+     *
+     * @param i index of the player who pressed their button first
+     * @throws IllegalArgumentException
+     */
     private void buttonPushed(int i) throws IllegalArgumentException {
         if (players.size() == 2) {
             statisticsHandler.recordTwoPlayerBuzzer(i);
@@ -53,6 +69,9 @@ public class GameShowBuzzerManager {
         messageSender.sendMessage("Player " + i + " pushed their button first!");
     }
 
+    /**
+     * Sets up all the buttons with their required listeners.
+     */
     private void setupButtons() {
         for (int i = 0; i < players.size(); i++) {
             final int j = i + 1;

@@ -19,12 +19,20 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 /**
- * Created by dashley on 2015-09-26.
+ * Generator for basic dialog boxes. The dialog boxes have an OK button and a given message.
+ *
+ * Rationale: This class encapsulates the normally complicated process of generating dialog boxes into a simple
+ * interface.
  */
 public class SimpleDialog implements MessageSender {
 
     private Activity activity;
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param activity android activity object
+     */
     public SimpleDialog(Activity activity) {
         this.activity = activity;
     }

@@ -22,6 +22,11 @@ import java.util.ArrayList;
 import ca.ualberta.dashley_reflex.BaseReflexActivity;
 import ca.ualberta.dashley_reflex.R;
 
+/**
+ * Creates and controls the Game Show Buzzer game for the case where there are three players.
+ *
+ * Rationale: This allows an easy and intuitive branching point while retaining the benefits of the android xml layouts.
+ */
 public class GameShowBuzzerThreePlayerActivity extends BaseReflexActivity {
 
     @Override

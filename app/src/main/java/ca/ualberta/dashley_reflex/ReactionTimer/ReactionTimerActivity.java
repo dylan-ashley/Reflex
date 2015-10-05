@@ -21,6 +21,11 @@ import android.widget.Button;
 import ca.ualberta.dashley_reflex.BaseReflexActivity;
 import ca.ualberta.dashley_reflex.R;
 
+/**
+ * Activity that controls the Reaction Timer game.
+ *
+ * Rationale: This follows the paradigm typical of android programming.
+ */
 public class ReactionTimerActivity extends BaseReflexActivity {
 
     private ReactionButtonManager reactionButtonManager;

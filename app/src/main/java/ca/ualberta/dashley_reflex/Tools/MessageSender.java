@@ -15,9 +15,17 @@
 package ca.ualberta.dashley_reflex.Tools;
 
 /**
- * Created by dashley on 2015-10-02.
+ * Interface that defines a method to send a message to the user.
+ *
+ * Rationale: This interface helps to separate the android independent components of this application from the android
+ * dependent components.
  */
 public interface MessageSender {
 
+    /**
+     * Communicates the given message to the user.
+     *
+     * @param message message to send to the user
+     */
     void sendMessage(String message);
 }

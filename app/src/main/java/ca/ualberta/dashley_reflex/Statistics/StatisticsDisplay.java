@@ -15,13 +15,29 @@
 package ca.ualberta.dashley_reflex.Statistics;
 
 /**
- * Created by dashley on 2015-09-28.
+ * Interface that defines a set of method to manipulate a display.
+ *
+ * Rationale: This interface helps to separate the android independent components of this application from the android
+ * dependent components.
  */
 public interface StatisticsDisplay {
 
+    /**
+     * Adds a statistic to the display.
+     *
+     * @param statistic value to place on display
+     */
     void addStatisticsToDisplay(String statistic);
 
+    /**
+     * Removes a statistic from the display.
+     *
+     * @param statistic value to place on display
+     */
     void removeStatisticsFromDisplay(String statistic);
 
+    /**
+     * Refreshes the display.
+     */
     void refreshDisplay();
 }

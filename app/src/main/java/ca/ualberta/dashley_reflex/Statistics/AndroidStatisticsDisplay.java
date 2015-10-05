@@ -23,13 +23,22 @@ import java.util.ArrayList;
 import ca.ualberta.dashley_reflex.R;
 
 /**
- * Created by dashley on 2015-09-28.
+ * Generator for basic dialog boxes. The dialog boxes have an OK button and a given message.
+ *
+ * Rationale: This class encapsulates the normally complicated process of generating dialog boxes into a simple
+ * interface.
  */
 public class AndroidStatisticsDisplay implements StatisticsDisplay {
 
     private final ArrayList<String> statisticsOnDisplay = new ArrayList<>();
     private final ArrayAdapter<String> arrayAdapter;
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param list list to display statistics on
+     * @param activity android activity object
+     */
     public AndroidStatisticsDisplay(ListView list, Activity activity) {
         this.arrayAdapter = new ArrayAdapter<>(activity, R.layout.list_item, statisticsOnDisplay);
         list.setAdapter(arrayAdapter);

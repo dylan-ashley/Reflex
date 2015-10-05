@@ -22,6 +22,11 @@ import ca.ualberta.dashley_reflex.GameShowBuzzer.GameShowBuzzerActivity;
 import ca.ualberta.dashley_reflex.ReactionTimer.ReactionTimerActivity;
 import ca.ualberta.dashley_reflex.Statistics.StatisticsActivity;
 
+/**
+ * Activity that controls the main menu screen of the app.
+ *
+ * Rationale: This follows the paradigm typical of android programming.
+ */
 public class MainMenuActivity extends BaseReflexActivity {
 
     @Override
@@ -30,16 +35,31 @@ public class MainMenuActivity extends BaseReflexActivity {
         setContentView(R.layout.activity_main_menu);
     }
 
+    /**
+     * Starts the ReactionTimer activity.
+     *
+     * @param view android view object
+     */
     public void startReactionTimer(View view) {
         Intent intent = new Intent(this, ReactionTimerActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Starts the GameShowBuzzer activity.
+     *
+     * @param view android view object
+     */
     public void startGameShowBuzzer(View view) {
         Intent intent = new Intent(this, GameShowBuzzerActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Starts the Statistics activity.
+     *
+     * @param view android view object
+     */
     public void startStatistics(View view) {
         Intent intent = new Intent(this, StatisticsActivity.class);
         startActivity(intent);

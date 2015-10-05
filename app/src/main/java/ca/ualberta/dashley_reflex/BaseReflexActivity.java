@@ -23,6 +23,11 @@ import ca.ualberta.dashley_reflex.Statistics.AndroidGsonStatisticsFileHandler;
 import ca.ualberta.dashley_reflex.Tools.SimpleDialog;
 import ca.ualberta.dashley_reflex.Statistics.StatisticsHandler;
 
+/**
+ * Abstract class that instantiates and manages a SimpleDialog and a StatisticsHandler.
+ *
+ * Rationale: Most activities in this application use one or both of the aforementioned objects.
+ */
 public abstract class BaseReflexActivity extends AppCompatActivity {
 
     protected final SimpleDialog messageSender = new SimpleDialog(this);

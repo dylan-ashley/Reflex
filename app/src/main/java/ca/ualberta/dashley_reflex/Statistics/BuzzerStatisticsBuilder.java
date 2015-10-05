@@ -19,17 +19,29 @@ import java.util.LinkedList;
 
 
 /**
- * Created by dashley on 2015-10-03.
+ * Generator for Buzzer statistics.
+ *
+ * Rationale: Delegates the complicated task of computing buzzer statistics to a specialist class.
  */
 public class BuzzerStatisticsBuilder {
 
     private final StatisticsHandler handler;
     private ArrayList<String> statisticsList = new ArrayList<>();
 
+    /**
+     * Returns a new instance of this class.
+     *
+     * @param handler handler to retrieve statistics from
+     */
     public BuzzerStatisticsBuilder(StatisticsHandler handler) {
         this.handler = handler;
     }
 
+    /**
+     * Computes all relevant statistics and returns them.
+     *
+     * @return statistics
+     */
     public ArrayList<String> getStatistics() {
         LinkedList<Long> twoPlayerBuzzerWins = handler.getTwoPlayerBuzzerWins();
         for (int i = 0; i < 2; i++) {

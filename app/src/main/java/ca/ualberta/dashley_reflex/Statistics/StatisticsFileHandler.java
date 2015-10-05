@@ -20,11 +20,28 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
- * Created by dashley on 2015-10-03.
+ * Interface that defines a set of method that provide saving and loading of files.
+ *
+ * Rationale: This interface helps to separate the android independent components of this application from the android
+ * dependent components.
  */
 public interface StatisticsFileHandler {
 
+    /**
+     * Loads a JSON structure from a file.
+     *
+     * @param filename name of the file
+     * @return value loaded from the file
+     * @throws FileNotFoundException
+     */
     HashMap<String, LinkedList<Long>> loadFile(String filename) throws FileNotFoundException;
 
+    /**
+     * Saves a JSON structure into a file.
+     *
+     * @param filename name of the file
+     * @param hashMap value to save
+     * @throws IOException
+     */
     void saveInFile(String filename, HashMap<String, LinkedList<Long>> hashMap) throws IOException;
 }
