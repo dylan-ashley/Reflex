@@ -50,8 +50,7 @@ public class AndroidGsonStatisticsFileHandler implements StatisticsFileHandler {
         BufferedReader in = new BufferedReader(new InputStreamReader(fis));
         Gson gson = new Gson();
         // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html; 2015-09-23
-        Type type = new TypeToken<HashMap<String, LinkedList<Long>>>() {
-        }.getType();
+        Type type = new TypeToken<HashMap<String, LinkedList<Long>>>() {}.getType();
         return gson.fromJson(in, type);
     }
 
