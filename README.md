@@ -3,6 +3,7 @@
 Assignment 1 for CMPUT 301 Fall 2015. A simple app that implements a reaction timer and a game show buzzer simulator while recording relevant performance statistics.
 
 Name: Dylan Robert Ashley
+
 CCID: dashley
 
 This assignment is stored in a [github repository](https://github.com/dylan-ashley/Reflex.git). A [demonstration video](https://github.com/dylan-ashley/Reflex/blob/master/doc/demo.mp4) can be found in the docs directory. A [compiled apk](https://github.com/dylan-ashley/Reflex/blob/master/bin/app-release.apk) can be found in the bin directory.
