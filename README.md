@@ -11,10 +11,10 @@ This assignment is stored in a [github repository](https://github.com/dylan-ashl
 
 The following people were consulted with in the completion of this assignment:
 
-Andrea McIntosh
-Kirsten Svidal
-Anju Eappen
-Jenna Hatchard
+- Andrea McIntosh
+- Kirsten Svidal
+- Anju Eappen
+- Jenna Hatchard
 
 Both the official android documentation and the official java documentation were referenced while making this project.
 
